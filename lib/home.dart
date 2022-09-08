@@ -21,11 +21,12 @@ class _homeState extends State<home> {
     try {
       setState(() {
         _isAuthenticating = true;
-        _authorized = 'Not Authorized';
+        _authorized = 'Authenticating';
       });
       authenticated = await auth.authenticate(
           localizedReason: 'Please authenticate to show account balance',
           options: AuthenticationOptions(
+            biometricOnly: true,
             useErrorDialogs: true,
             stickyAuth: true,
           ));
